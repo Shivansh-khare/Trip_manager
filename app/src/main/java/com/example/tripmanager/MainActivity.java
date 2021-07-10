@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements TripAdapter.oncli
                     myAdapter.notifyDataSetChanged();
                     manager.beginTransaction().hide(manager.findFragmentById(R.id.fragment)).commit();
                     btn_trip.setVisibility(View.VISIBLE);
+                    etName.setText("");
                 }
             }
         });

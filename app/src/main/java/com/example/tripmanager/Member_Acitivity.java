@@ -1,5 +1,7 @@
 package com.example.tripmanager;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +55,10 @@ public class Member_Acitivity extends AppCompatActivity implements TripAdapter.o
         etexp=findViewById(R.id.et_exp);
         rv_check=false;
 
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(name);
+        actionBar.setDisplayShowTitleEnabled(true);
 
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().hide(manager.findFragmentById(R.id.frag)).hide(manager.findFragmentById(R.id.fragment2)).commit();
@@ -97,6 +106,8 @@ public class Member_Acitivity extends AppCompatActivity implements TripAdapter.o
                     editor.apply();
                     myAdapter.notifyDataSetChanged();
                     manager.beginTransaction().hide(manager.findFragmentById(R.id.frag)).commit();
+                    etName.setText("");
+                    etPrice.setText("");
                     btn_trip.setVisibility(View.VISIBLE);
                     btn_expnce.setVisibility(View.VISIBLE);
                 }
@@ -126,6 +137,7 @@ public class Member_Acitivity extends AppCompatActivity implements TripAdapter.o
                     editor.apply();
                     manager.beginTransaction().hide(manager.findFragmentById(R.id.fragment2)).commit();
                     tv_name.setText("XYZ");
+                    etexp.setText("");
                     btn_trip.setVisibility(View.VISIBLE);
                     btn_exp_choose.setVisibility(View.VISIBLE);
                     btn_expnce.setVisibility(View.VISIBLE);
@@ -155,5 +167,25 @@ public class Member_Acitivity extends AppCompatActivity implements TripAdapter.o
             SharedPreferences preferences = getSharedPreferences(s,MODE_PRIVATE);
             Toast.makeText(this,"given Money :"+preferences.getInt(name+"@"+x.get(i),0),Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        SharedPreferences preferences = getSharedPreferences(s,MODE_PRIVATE);
+        Set<String> trip;
+        trip = preferences.getStringSet("trips",set);
+        trip.remove(name);
+        preferences.edit().putStringSet("trips",trip).apply();
+        Intent intent = new Intent(this, End_trip.class);
+        intent.putExtra("name",name);
+        startActivity(intent);
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
