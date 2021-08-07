@@ -12,11 +12,12 @@ This app was made with the intension of solving some issues we face while managi
 
 ### vedio
 
-Uploading Record_2021-08-07-18-56-17.mp4…!
+[vedio](https://youtu.be/AeMigGxJJhY)
+
 
 ### screen shot
 
-[Uploading Screenshot_2021-08-07-18-58-11-23_8dcd267c042d33511f53e853efd8e56d.jpg…]()
+[Screen Shot](https://user-images.githubusercontent.com/71515610/128602605-9a4279b7-16a9-4825-9d95-d3d218f96b12.jpg)
 
 ## install Apk 
 
