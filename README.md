@@ -1,7 +1,7 @@
 # Trip-Manager
 
 ## Intention
-This app was made with the intension of solving some issues we face while managingtrips where many persons are paying bills . so this app will tell every one that whoneed to give how much amount to which person.
+This app was made with the intension of solving some issues we face while managing trips where many persons are paying bills . so this app will tell every one that who need to give how much amount to which person.
 
 ## Features
 * Manages multiple trips at the same time and even with the same members.
@@ -12,6 +12,7 @@ This app was made with the intension of solving some issues we face while managi
 
 ### vedio
 
+watch this vedio to fully understand how the application works
 [vedio](https://youtu.be/AeMigGxJJhY)
 
 
